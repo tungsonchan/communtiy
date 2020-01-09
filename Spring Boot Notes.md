@@ -1,0 +1,11 @@
+# Spring Boot Notes
+
+main class需要在最外层，可访问到所有controller
+
+Ctrl+Shift+F12全屏
+
+Ctrl+Alt+L 代码格式化
+
+Ctrl+X 删除一行
+
+Shift+F6 rename
