@@ -9,3 +9,7 @@ Ctrl+Alt+L 代码格式化
 Ctrl+X 删除一行
 
 Shift+F6 rename
+
+Ctrl+Shift+N find file
+
+Alt+Insert 类中补充get set
