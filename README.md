@@ -21,3 +21,12 @@
 [VP](https://www.visual-paradigm.com)
 
 [mybatis-spring-boot-autoconfigure](https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)
+
+[flyway](https://flywaydb.org/getstarted/firststeps/maven)
+
+[Lombok](https://projectlombok.org/)
+
+##脚本
+````bash
+mvn flyway:migrate
+````
