@@ -14,6 +14,8 @@
 
 [mvnrepository](https://mvnrepository.com/)
 
+[thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html)
+
 ## 工具
 
 [Git](https://git-scm.com/download)
