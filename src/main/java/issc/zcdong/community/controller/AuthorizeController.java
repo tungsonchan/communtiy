@@ -2,7 +2,6 @@ package issc.zcdong.community.controller;
 
 import issc.zcdong.community.dto.AccessTokenDTO;
 import issc.zcdong.community.dto.GithubUser;
-import issc.zcdong.community.mapper.UserMapper;
 import issc.zcdong.community.model.User;
 import issc.zcdong.community.provider.GithubProvider;
 import issc.zcdong.community.service.UserService;
