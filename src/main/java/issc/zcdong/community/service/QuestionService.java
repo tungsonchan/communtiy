@@ -2,6 +2,9 @@ package issc.zcdong.community.service;
 
 import issc.zcdong.community.dto.PaginationDTO;
 import issc.zcdong.community.dto.QuestionDTO;
+import issc.zcdong.community.exception.CustomizeErrorCode;
+import issc.zcdong.community.exception.CustomizeException;
+import issc.zcdong.community.mapper.QuestionExtMapper;
 import issc.zcdong.community.mapper.QuestionMapper;
 import issc.zcdong.community.mapper.UserMapper;
 import issc.zcdong.community.model.Question;
@@ -20,6 +23,9 @@ public class QuestionService {
 
     @Autowired
     private QuestionMapper questionMapper;
+
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     @Autowired
     private UserMapper userMapper;
@@ -86,7 +92,7 @@ public class QuestionService {
         Integer offset = size * (page - 1);
 
         QuestionExample example = new QuestionExample();
-        example.createCriteria().andCreatorEqualTo(userId);
+        example.createCriteria().andIdEqualTo(userId);
         List<Question> questions = questionMapper.selectByExampleWithRowbounds(example, new RowBounds(offset, size));
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
@@ -103,6 +109,10 @@ public class QuestionService {
 
     public QuestionDTO getById(Integer id) {
         Question question = questionMapper.selectByPrimaryKey(id);
+        if (question == null) {
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
+
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question, questionDTO);
         User user = userMapper.selectByPrimaryKey(question.getCreator());
@@ -114,6 +124,9 @@ public class QuestionService {
         if (question.getId() == null) {
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
+            question.setViewCount(0);
+            question.setCommentCount(0);
+            question.setLikeCount(0);
             questionMapper.insert(question);
         } else {
             //更新
@@ -124,8 +137,18 @@ public class QuestionService {
             updateQuestion.setTag(question.getTag());
 
             QuestionExample example = new QuestionExample();
-            example.createCriteria().andCreatorEqualTo(question.getId());
-            questionMapper.updateByExampleSelective(updateQuestion, example);
+            example.createCriteria().andIdEqualTo(question.getId());
+            int updated = questionMapper.updateByExampleSelective(updateQuestion, example);
+            if (updated != 1) {
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
+    }
+
+    public void incView(Integer id) {
+        Question question = new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.incView(question);
     }
 }

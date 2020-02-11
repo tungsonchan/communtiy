@@ -17,3 +17,7 @@ Alt+Insert 类中补充get set
 Ctrl+Alt+V 自动补充 new声明
 
 Ctrl+E 返回上一个编辑页面
+
+Ctrl+W 选中代码
+
+Alt+F7 find usage
