@@ -18,6 +18,10 @@
 
 [thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html)
 
+[postman](https://app.getpostman.com/app/download/win64)
+
+[json editor online](http://jsoneditoronline.org/)
+
 ## 工具
 
 [Git](https://git-scm.com/download)
