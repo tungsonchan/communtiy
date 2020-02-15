@@ -21,3 +21,5 @@ Ctrl+E 返回上一个编辑页面
 Ctrl+W 选中代码
 
 Alt+F7 find usage
+
+Ctrl+F6 change signature 修改变量及其依赖

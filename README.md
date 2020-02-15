@@ -18,7 +18,7 @@
 
 [thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html)
 
-[postman](https://app.getpostman.com/app/download/win64)
+[postman]( https://chrome.google.com/webstore/search/postman?utm_source=chrome-ntp-icon )
 
 [json editor online](http://jsoneditoronline.org/)
 
