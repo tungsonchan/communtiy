@@ -23,3 +23,9 @@ Ctrl+W 选中代码
 Alt+F7 find usage
 
 Ctrl+F6 change signature 修改变量及其依赖
+
+Ctrl+Shift+? 注释
+
+Ctrl+Alt+P 抽变量
+
+Ctrl+F6 change signature

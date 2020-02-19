@@ -3,6 +3,8 @@ package issc.zcdong.community.dto;
 import issc.zcdong.community.model.User;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class QuestionDTO {
     private Long id;
