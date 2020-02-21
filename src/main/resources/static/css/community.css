@@ -59,11 +59,15 @@ question-advertise {
 
 .publish-tag-tab .label-info {
     margin-right: 10px;
+    white-space: normal;
+    margin: 5px 5px;
+    display: inline-block;
 }
 
 .community-menu {
     color: #999;
     font-size: 13px;
+    margin-bottom: 15px;
 }
 
 .jumbotron {
