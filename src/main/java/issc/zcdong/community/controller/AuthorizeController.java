@@ -5,6 +5,7 @@ import issc.zcdong.community.dto.GithubUser;
 import issc.zcdong.community.model.User;
 import issc.zcdong.community.provider.GithubProvider;
 import issc.zcdong.community.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 @Controller
+@Slf4j
 public class AuthorizeController {
 
     @Autowired
@@ -35,10 +37,10 @@ public class AuthorizeController {
     private UserService userService;
 
     @GetMapping("/callback")
-    public String callback(@RequestParam(name = "code",defaultValue = "") String code,
+    public String callback(@RequestParam(name = "code", defaultValue = "") String code,
                            @RequestParam(name = "state", defaultValue = "") String state,
                            HttpServletRequest request,
-                           HttpServletResponse response){
+                           HttpServletResponse response) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientId);
         accessTokenDTO.setClient_secret(clientSecret);
@@ -47,7 +49,7 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
-        if (githubUser != null){
+        if (githubUser != null) {
             //登录成功，写cookie和session
             User user = new User();
             String token = UUID.randomUUID().toString();
@@ -58,7 +60,9 @@ public class AuthorizeController {
             userService.createOrUpdate(user);
             response.addCookie(new Cookie("token", token));
             return "redirect:/";
-        }else {
+        } else {
+            log.error("callback get github error,{}", githubUser);
+            //登陆失败
             return "redirect:/";
         }
     }
