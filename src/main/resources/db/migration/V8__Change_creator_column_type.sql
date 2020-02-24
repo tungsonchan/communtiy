@@ -1,2 +1,2 @@
-alter table QUESTION alter column CREATOR bigint auto_increment;
-alter table COMMENT alter column COMMENTATOR bigint auto_increment;
+alter table question alter column creator bigint auto_increment;
+alter table comment alter column commentator bigint auto_increment;
