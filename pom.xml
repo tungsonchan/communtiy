@@ -66,6 +66,12 @@
         </dependency>
 
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.19</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.200</version>
@@ -82,11 +88,13 @@
             <artifactId>lombok</artifactId>
             <version>1.18.10</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
         </dependency>
+
         <dependency>
             <groupId>cn.ucloud.ufile</groupId>
             <artifactId>ufile-client-java</artifactId>
@@ -106,11 +114,17 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>6.1.4</version>
                 <configuration>
-                    <url>jdbc:h2:D:/IdeaProjects/community/database/community</url>
+                    <url>jdbc:mysql://101.200.49.148:3306/community</url>
                     <user>dzc</user>
                     <password>dzc</password>
                 </configuration>
+                <!--jdbc:h2:D:/IdeaProjects/community/database/community-->
                 <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>8.0.19</version>
+                    </dependency>
                     <dependency>
                         <groupId>com.h2database</groupId>
                         <artifactId>h2</artifactId>
