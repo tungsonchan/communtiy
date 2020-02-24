@@ -118,7 +118,6 @@
                     <user>dzc</user>
                     <password>dzc</password>
                 </configuration>
-                <!--jdbc:h2:D:/IdeaProjects/community/database/community-->
                 <dependencies>
                     <dependency>
                         <groupId>mysql</groupId>
