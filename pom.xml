@@ -114,9 +114,9 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>6.1.4</version>
                 <configuration>
-                    <url>jdbc:mysql://101.200.49.148:3306/community</url>
+                    <url>jdbc:mysql://rm-2zep6n88mratq0avt125010.mysql.rds.aliyuncs.com:3306/community</url>
                     <user>dzc</user>
-                    <password>dzc</password>
+                    <password>dzctsc+960212</password>
                 </configuration>
                 <dependencies>
                     <dependency>
