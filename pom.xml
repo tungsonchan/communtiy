@@ -18,6 +18,20 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <db.url>jdbc:h2:D:/IdeaProjects/community/database/community</db.url>
+                <db.user>dzc</db.user>
+                <db.password>dzc</db.password>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -114,9 +128,9 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>6.1.4</version>
                 <configuration>
-                    <url>jdbc:mysql://rm-2zep6n88mratq0avt125010.mysql.rds.aliyuncs.com:3306/community</url>
-                    <user>dzc</user>
-                    <password>dzctsc+960212</password>
+                    <url>${db.url}</url>
+                    <user>${db.user}</user>
+                    <password>${db.password}</password>
                 </configuration>
                 <dependencies>
                     <dependency>
